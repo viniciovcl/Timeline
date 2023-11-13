@@ -27,15 +27,14 @@ data <- tribble( ~start_date, ~event, ~displ,
                  ymd(20220317), paste0(
                    "° Conversa inicial: Demandas Áreas de Implantação MS"), 1.2,
                 ymd(20220428), paste0(
-                  "° Projeto linhas teste Planter D-61", "\n",
-                  "  - Alinhamento komatsu + Hexagon + Cartografia", "\n",
-                  "  - Copy parallel line ArcGIS"), - 0.36,
+                  "° Projeto linhas teste Planter D-61 (Copy parallel line)", "\n",
+                  "  - Alinhamento komatsu + Hexagon + Cartografia"),  - 0.25,
                  ymd(20220512), paste0(
                    "° Aprovação projeto linhas de plantio Barra do Porto", "\n",
                    "° Contratação serviço técnico Iguaçu Máquinas (R$ 5.0/ha)"), 0.96,
                 ymd(20220630), paste0(
                   "° Replicação de linhas via Operation Center JD", "\n",
-                  "Pistas A-B (linhas retas)"), -0.22,
+                  "Pistas A-B (linhas retas)"), -0.15,
                 ymd(20220712), paste0(
                   "° Cotação", "\n", "AgroCAD", "\n",
                   "R$ 32.000/ano"), 0.09,
@@ -56,16 +55,16 @@ data <- tribble( ~start_date, ~event, ~displ,
                  ymd(20221206), paste0(
                    "° Treinamento AgroCAD Iguaçu Máquinas", "\n",
                    "° 1º Rodada avaliação de aderência", "\n",
-                   "     Projeto  Bananal"), 0.06,
+                   "     Projeto  Bananal"), 0.07,
                 ymd(20230131), paste0(
                   "° Análise erosão Bananal", "\n",
                   "° 1ª Reunião de sinergia", "\n",
                   "  - Padronização da metodologia", "\n",
-                  "  - linha mestra: n >= 3/talhão"), -0.30,
+                  "  - linha mestra: n >= 3/talhão"), -0.16,
                 ymd(20230317), paste0(
                   "° Treinamento AgroCAD Tecgraf", "\n",
                   "° Dificuldades da equipe operacional", "\n",
-                  "com o consumo das informações"), -0.20,
+                  "com o consumo das informações"), -0.04,
                 ymd(20230327), paste0(
                   "° 2º Rodada avaliação de aderência", "\n",
                   "     Projeto  Jataí", "\n",
@@ -84,12 +83,12 @@ data <- tribble( ~start_date, ~event, ~displ,
                   "° Revisão e avaliação dos modelos de elevação", "\n",
                   "° Definição área de teste talhões Utu-Guaçu ", "\n",
                   "° Orçamento MDT Engesat", "\n",
-                  "   WorldDEM Neo (5m)"), 0.5,
+                  "   WorldDEM Neo (R$ 6/ha)"), 0.5,
                 ymd(20230719), paste0(
                   "° 4º Rodada avaliação de aderência", "\n",
                   "     Projeto teste Utu-Guaçu", "\n",
                   "  - MDT Drone", "\n",
-                  "  - MDT WorldDEM Neo"), -0.30,
+                  "  - MDT WorldDEM Neo"), -0.17,
                 ymd(20230809), paste0(
                   "° Contratação", "\n",
                   "  serviço drone/vant", "\n",
@@ -97,7 +96,7 @@ data <- tribble( ~start_date, ~event, ~displ,
                 ymd(20230817), paste0(
                   "° Canal de comunicação líderes subsolagem", "\n",
                   "  - Feedback operacional", "\n",
-                  "  - Consumo de informações"), -0.14,
+                  "  - Consumo de informações"), -0.05,
                 ymd(20230830), paste0(
                   "° Visita técnica Benchmark Mantena Florestal", "\n",
                   "  - Linhas de plantio", "\n",
@@ -128,7 +127,7 @@ p1 <- data %>%
   ggplot(aes(start_date, displ)) +
   geom_lollipop(point.size = 0.5) +
   geom_text(aes(x = start_date, y = displ, label = event), data = data,
-            hjust = 0, vjust = vjust, size = 1.85) +
+            hjust = 0, vjust = vjust, size = 2.15) +
   theme(axis.title = element_blank(),
         axis.text.y = element_blank(),
         axis.ticks.y = element_blank(),
@@ -139,3 +138,8 @@ p1 <- data %>%
 
 #and run the function from above
 timeline <- shift_axis(p1, ymd(20220305), ymd(20240105))
+
+timeline
+
+# ggsave("./Timiline_linhas_de_plantio.png",
+#        width = 500, height = 390, units = 'mm')
