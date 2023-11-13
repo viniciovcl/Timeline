@@ -1,16 +1,17 @@
-https://weiyangtham.github.io/timeline_quick/
-  https://pharmacoecon.me/post/2021-04-18-timeline-graph/
-  https://stackoverflow.com/questions/20695311/chronological-timeline-with-points-in-time-and-format-date
-https://stackoverflow.com/questions/7492274/draw-a-chronological-timeline-with-ggplot2
+# ------------------------------------------------------
+# Plot timeline
+#
+#     Plot para descrever a linha do tempo de um determinado tema.
+#
+# Referencias:
+# https://weiyangtham.github.io/timeline_quick/
+# https://pharmacoecon.me/post/2021-04-18-timeline-graph/
+# https://stackoverflow.com/questions/20695311/chronological-timeline-with-points-in-time-and-format-date
+# https://stackoverflow.com/questions/7492274/draw-a-chronological-timeline-with-ggplot2
+#
+# vinicio.lima@arauco.com
+# ------------------------------------------------------
 
-### Time Line Plot
-
-library(ggplot2)
-library(dplyr)
-library(ggalt)
-library(cowplot)
-library(tibble)
-library(lubridate)
 
 #### timeline linhas de Plantio
 
@@ -25,9 +26,6 @@ library(lubridate)
 data <- tribble( ~start_date, ~event, ~displ,
                  ymd(20220317), paste0(
                    "° Conversa inicial: Demandas Áreas de Implantação MS"), 1.2,
-                # ymd(20160420), paste0(
-                #     "Teste operacional linhas GPS JhonDeere", "\n",
-                #     "Projeto AutoCAD + colaboração Iguaçu Máquinas"), -0.45,
                 ymd(20220428), paste0(
                   "° Projeto linhas teste Planter D-61", "\n",
                   "  - Alinhamento komatsu + Hexagon + Cartografia", "\n",
@@ -55,7 +53,6 @@ data <- tribble( ~start_date, ~event, ~displ,
                 ymd(20221026), paste0(
                   "° Reunião AgroCAD", "\n",
                   " TI + Cartografia"), 0.36,
-                 # ymd(20160601), "UBDC RAC approval", -0.15,
                  ymd(20221206), paste0(
                    "° Treinamento AgroCAD Iguaçu Máquinas", "\n",
                    "° 1º Rodada avaliação de aderência", "\n",
@@ -93,9 +90,6 @@ data <- tribble( ~start_date, ~event, ~displ,
                   "     Projeto teste Utu-Guaçu", "\n",
                   "  - MDT Drone", "\n",
                   "  - MDT WorldDEM Neo"), -0.30,
-                # ymd(20161226), paste0(
-                #   "Treinamento AgroCAD", "\n",
-                #   "Iguaçu Máquinas"), 0.07,
                 ymd(20230809), paste0(
                   "° Contratação", "\n",
                   "  serviço drone/vant", "\n",
